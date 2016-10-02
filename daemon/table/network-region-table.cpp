@@ -41,4 +41,36 @@ NetworkRegionTable::isInProducerRegion(const Link& link) const
   return false;
 }
 
+void
+NetworkRegionTable::eraseRegionName(const Name& regionName){
+    if(m_nrTable.empty()){
+        //some message indicationg the table is empty
+    }
+    else{
+        auto entry = m_nrTable.find(regionName);
+        if(entry == m_nrTable.end()){
+        //some message indication there is no such an entry
+    }
+        else{
+            //some LOG indicating the entry deletion
+            m_nrTable.erase(entry);
+        }
+
+    }
+}
+
+bool
+NetworkRegionTable::addRegionName(const Name& RegionName)
+{
+    auto entry = m_nrTable.find(RegionName);
+    if(entry != m_nrTable.end()){
+        //some LOG indicating the entry already exists
+        return false;
+    }
+    else{
+        m_nrTable.insert(RegionName);
+        return true;
+    }
+}
+
 } // namespace nfd

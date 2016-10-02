@@ -51,8 +51,18 @@ public:
    */
   bool
   isInProducerRegion(const Link& link) const;
-};
 
+
+void
+  eraseRegionName(const Name& regionName);
+
+bool
+  addRegionName(const Name& RegionName);
+
+private:
+  std::set<Name> m_nrTable;
+
+};
 } // namespace nfd
 
 #endif // NFD_DAEMON_TABLE_NETWORK_REGION_TABLE_HPP
